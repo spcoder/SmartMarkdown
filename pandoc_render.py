@@ -76,7 +76,7 @@ class PandocRenderCommand(sublime_plugin.TextCommand):
         setting_path = self.setting.get("tex_path", [])
         for p in setting_path:
             if p not in os.environ["PATH"]:
-                os.environ["PATH"] += ":" + p
+                os.environ["PATH"] += os.pathsep + p
 
         try:
             # Use the current directory as working dir whenever possible
